@@ -1,0 +1,33 @@
+<% if GAME.player2_is_computer? %>
+<h2>Good Luck, this piece of metal has one smart cookie!</h2>
+
+<h3><%= @opponent %> is feeling confident today <%= @name %>.</h3>
+
+<p>Now choose your weapon and pray to the Gods that luck and fate are on your side:</p>
+
+<form action='/weapon_vs_computer' method='post'>
+	<input type='radio' name='weapon' value='rock' checked id='weapon_rock'/>Rock
+	<input type='radio' name='weapon' value='paper' id='weapon_paper'/>Paper
+	<input type='radio' name='weapon' value='scissors' id='weapon_scissors'/>Scissors
+	<input type='radio' name='weapon' value='lizard' id='weapon_lizard'/>Lizard
+	<input type='radio' name='weapon' value='spock' id='weapon_spock'/>Spock
+	<button>Let's play!</button>
+</form>
+
+<% end %>
+
+<% if !GAME.player2_is_computer? %>
+<h2>Good Luck <%= @name %>. We have paired you with another of your species.</h2>
+
+<p>Now choose your weapon and pray to the Gods that luck and fate are on your side:</p>
+
+<form action='/weapon_vs_human' method='post'>
+	<input type='radio' name='weapon' value='rock' checked id='weapon_rock'/>Rock
+	<input type='radio' name='weapon' value='paper' id='weapon_paper'/>Paper
+	<input type='radio' name='weapon' value='scissors' id='weapon_scissors'/>Scissors
+	<input type='radio' name='weapon' value='lizard' id='weapon_lizard'/>Lizard
+	<input type='radio' name='weapon' value='spock' id='weapon_spock'/>Spock
+	<button>Let's play!</button>
+</form>
+
+<% end %>
