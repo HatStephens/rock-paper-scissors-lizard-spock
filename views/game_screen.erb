@@ -1,9 +1,9 @@
-<% if GAME.player2_is_computer? %>
+<% if @@games[session[:id]].player2_is_computer? %>
 <h2>Good Luck, this piece of metal has one smart cookie!</h2>
 
 <h3><%= @opponent %> is feeling confident today <%= @name %>.</h3>
 
-<p>Now choose your weapon and pray to the Gods that luck and fate are on your side:</p>
+<h3>Now choose your weapon and pray to the Gods that luck and fate are on your side:</h3>
 
 <form action='/weapon_vs_computer' method='post'>
 	<input type='radio' name='weapon' value='rock' checked id='weapon_rock'/>Rock
@@ -11,12 +11,12 @@
 	<input type='radio' name='weapon' value='scissors' id='weapon_scissors'/>Scissors
 	<input type='radio' name='weapon' value='lizard' id='weapon_lizard'/>Lizard
 	<input type='radio' name='weapon' value='spock' id='weapon_spock'/>Spock
-	<button>Let's play!</button>
+	<input id='submit' type='submit' value="Let's play!"/>
 </form>
 
 <% end %>
 
-<% if !GAME.player2_is_computer? %>
+<% if !@@games[session[:id]].player2_is_computer? %>
 <h2>Good Luck <%= @name %>. We have paired you with another of your species.</h2>
 
 <p>Now choose your weapon and pray to the Gods that luck and fate are on your side:</p>
@@ -27,7 +27,8 @@
 	<input type='radio' name='weapon' value='scissors' id='weapon_scissors'/>Scissors
 	<input type='radio' name='weapon' value='lizard' id='weapon_lizard'/>Lizard
 	<input type='radio' name='weapon' value='spock' id='weapon_spock'/>Spock
-	<button>Let's play!</button>
+	<input id='submit' type='submit' value="Let's play!"/>
+
 </form>
 
 <% end %>

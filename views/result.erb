@@ -1,7 +1,7 @@
 
-<h2>So <%= GAME.player1.name %> selected <%= GAME.player1.weapon %></h2>
-<h2>And <%= GAME.player2.name %> selected <%= GAME.player2.weapon %></h2>
+<h2>So <%= @@games[session[:id]].player1.name %> selected <%= @@games[session[:id]].player1.weapon %></h2>
+<h2>And <%= @@games[session[:id]].player2.name %> selected <%= @@games[session[:id]].player2.weapon %></h2>
 
 <h2>So the winner is.....</h2>
 
-<h3><%= GAME.decide_winner %></h3>
+<h2 class="winner"><%= @@games[session[:id]].decide_winner %></h2>

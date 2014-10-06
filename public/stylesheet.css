@@ -1,0 +1,155 @@
+header, section, footer, aside, nav, article, figure, fig caption { 
+	display: block;
+}
+
+header, nav, footer, section {
+	background-color: #aa3939;
+	border-radius: 8px;
+	color: #550000;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+
+}
+
+nav, footer{	
+	clear: both;
+}
+
+body {
+	max-width: 800px;
+	min-width: 600px;
+	margin: 0px auto 0px auto;
+}
+
+header {
+	height: 120px;
+	padding: 7px;
+	margin: 10px auto 5px auto;
+	text-transform: uppercase;	
+}
+
+header > h1 {
+	font-family: Tahoma;
+	font-size: 2.5em;
+	margin: 5px;
+}
+
+header > h4 {
+	line-height: 1.1em;
+	font-family: Tahoma;
+	font-size: 1em;
+	margin: 5px;
+	color: #d46a6a;
+}
+
+nav {
+	height: 50px;
+	padding: 8px;
+	margin: 5px auto 10px auto;
+	text-transform: uppercase;
+	font-family: Tahoma, sans-serif;
+	font-size: 1em;
+	line-height: 2em;
+}
+
+nav ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+
+nav li {
+	display: inline;
+	margin-right: 40px;
+}
+
+a:link {
+	color:#550000;
+	text-decoration: none;
+}
+
+a:visited {
+	color:#550000;
+}
+
+a:hover {
+	color: #d46a6a;
+}
+
+
+
+/*section.main {
+	min-height: 400px;
+	max-height: 1500px;
+	padding: 10px;
+	margin: 20px auto 20px auto;
+	font-family: Arial, san-serif;
+	font-size: 1.4em;
+	line-height:1.4em;
+	overflow: auto;
+}*/
+
+footer {
+	min-height: 14%;
+	max-height: 15%;
+	padding: 10px;
+	margin: 20px auto 5px auto;
+	font-family: Tahoma, san-serif;
+	font-size: 0.8em;
+}
+
+
+h2 {
+	font-family: Tahoma;
+	font-size: 1.8em;
+	color: #550000;
+}
+
+h2.winner {
+	border: 2px solid #550000;
+	text-align: center;
+	max-width: 50%;
+	background-color: #d46a6a;
+}
+
+h3 {
+	font-family: Tahoma;
+	font-size: 1.5em;
+	color: #550000;
+	line-height: 1.7em;
+}
+
+input#text {
+	width: 60%;
+	font-size: 1.4em;
+	color: #550000;
+	background-color: #d46a6a;
+	border: 2px solid #550000;
+	border-radius: 8px;
+	padding: 5px 5px 5px 15px;
+	height: 2em;
+}
+
+input#text:focus, input#text:hover {
+	background-color: white;
+}
+
+input#submit {
+	color: #550000;
+	height: 3em;
+	width: 20%;
+	border-radius: 8px;
+}
+
+input#submit:hover {
+	background-color: #550000;
+	color: #d46a6a;
+}
+
+input#radio {
+	font-family: Tahoma;
+	font-size: 1.5em;
+	color: #550000;
+	line-height: 1.7em;
+}

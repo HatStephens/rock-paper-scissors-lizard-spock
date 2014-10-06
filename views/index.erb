@@ -1,20 +1,21 @@
-<h1>Welcome to RPSLS HQ</h1>
-
 <% if !@name %>
-<h3>Please enter your name to begin your battle:</h3>
+<main>
+<h2>Welcome to RPSLS HQ</h2>
+<h2>Please enter your name to begin your battle:</h2>
 
-<form action='/create_player' method='post'>    <!-- UP TO THIS POINT. NEED TO SEE HOW TO PASS PARAMETERS IN URI-->
-	<input type='text' name='name' placeholder='Please enter your name here...'/> 
-	<button>Bring it on!</button>
+<form action='/create_player' method='post'> 
+	<input id='text' type='text' name='name' placeholder='Please enter your name here...'/>
+	<input id='submit' type='submit' value='Bring it on!'/>
 </form>
+</main>
 <% end %>
 
 <% if @name %>
-<h3>Welcome to the Action Zone, <%= @name %></h3>
-<h4>You must now choose whether you want to play against our Super Computer or another Dumb Human:</h4>
+<h2>Welcome to the Action Zone, <%= @name %></h2>
+<h3>You must now choose whether you want to play against our Super Computer or another Dumb Human:</h3>
 <form action='/opponent_route' method='post'>
-	<input type='radio' name='opponent' value='super_computer' checked id='opponent_super_computer'/>Super Computer
+	<input id='radio' type='radio' name='opponent' value='super_computer' checked id='opponent_super_computer'/>Super Computer
 	<input type='radio' name='opponent' value='dumb_human' id='opponent_dumb_human'/>Dumb Human
-	<button>Let's play!</button>
+	<input id='submit' type='submit' value="Let's play!"/>
 </form>
 <% end %>
