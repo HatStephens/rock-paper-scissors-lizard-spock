@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/flash'
-require 'securerandom'
+require 'secrurerandom'
 require_relative 'game'
 require_relative 'player'
 require_relative 'enemy'
@@ -14,20 +14,20 @@ class RPSLS < Sinatra::Base
 
 	enable :sessions
 
-	# GAME = Game.new
+	GAME = Game.new
 
-	@@games = Hash.new
-	@@waiting_player = []
+	# @@games = Hash.new
+	# @@waiting_player = []
 
 	get '/' do
-		if @@waiting_player.empty?
-			session[:id] = SecureRandom.uuid
-			@@waiting_player << session[:id]
-			@@games[session[:id]] = Game.new
-		else
-			session[:id] = SecureRandom.uuid
-			@@games[session[:id]] = @@games[@@waiting_player.pop]
-		end
+		# if @@waiting_player.empty?
+		# 	session[:id] = SecureRandom.uuid
+		# 	@@waiting_player << session[:id]
+		# 	@@games[session[:id]] = Game.new
+		# else
+		# 	session[:id] = SecureRandom.uuid
+		# 	@@games[session[:id]] = @@games[@@waiting_player.pop]
+		# end
 
 	  erb :index
 	end
@@ -49,9 +49,9 @@ class RPSLS < Sinatra::Base
 	get '/opponent_computer' do
 		player = Player.new
 	  	player.name = session[:name]
-	  	@@games[session[:id]].add_player(player)
+	  	GAME.add_player(player)
 		enemy = Enemy.new
-		@@games[session[:id]].add_player(enemy)
+		GAME.add_player(enemy)
 		redirect '/choose_weapon'
 	end
 
@@ -59,51 +59,51 @@ class RPSLS < Sinatra::Base
 	get '/opponent_human' do
 		player = Player.new
 	  	player.name = session[:name]
-	  	@@games[session[:id]].add_player(player)
-	  	if @@games[session[:id]].has_two_players?
+	  	GAME.add_player(player)
+	  	if GAME.has_two_players?
 	  		session[:player] = :player2
 	  	else
 	  		session[:player] = :player1
 	  	end
-		redirect '/waiting_for_player' if !@@games[session[:id]].has_two_players?
+		redirect '/waiting_for_player' if !GAME.has_two_players?
 		redirect '/choose_weapon'
 	end
 
 	get '/choose_weapon' do
-		@opponent = @@games[session[:id]].player2.name if @@games[session[:id]].player2.is_a?(Enemy)
+		@opponent = GAME.player2.name if GAME.player2.is_a?(Enemy)
 		@name = session[:name]
 
 		erb :game_screen
 	end
 
 	get '/waiting_for_player' do
-		redirect '/choose_weapon' if @@games[session[:id]].has_two_players?
+		redirect '/choose_weapon' if GAME.has_two_players?
 		@name = session[:name]
 
 		erb :waiting
 	end
 
 	post '/weapon_vs_computer' do
-		@@games[session[:id]].player1.weapon = params['weapon']
-		@@games[session[:id]].get_computer_weapon
+		GAME.player1.weapon = params['weapon']
+		GAME.get_computer_weapon
 
 		erb :result
 	end
 
 	post '/weapon_vs_human' do
 		if session[:player]==:player1
-			@@games[session[:id]].player1.weapon = params['weapon']
+			GAME.player1.weapon = params['weapon']
 		else
-			@@games[session[:id]].player2.weapon = params['weapon']
+			GAME.player2.weapon = params['weapon']
 		end
 
-		redirect '/waiting_for_weapon' unless @@games[session[:id]].both_have_weapon?
+		redirect '/waiting_for_weapon' unless GAME.both_have_weapon?
 
 		redirect '/result_vs_human'
 	end
 
 	get '/waiting_for_weapon' do
-		redirect '/result_vs_human' if @@games[session[:id]].both_have_weapon?
+		redirect '/result_vs_human' if GAME.both_have_weapon?
 		@name = session[:name]
 
 		erb :waiting

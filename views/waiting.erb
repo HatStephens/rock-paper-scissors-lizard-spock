@@ -1,4 +1,4 @@
-<% if !@@games[session[:id]].has_two_players? %>
+<% if !GAME.has_two_players? %>
 <h3>Please wait whilst we try to find you a fellow humanoid to play against.</h3>
 <h2>Thank you for your patience <%= @name %></h2>
 
@@ -7,7 +7,7 @@
 
 <% end %>
 
-<% if @@games[session[:id]].has_two_players? %>
+<% if GAME.has_two_players? %>
 <h3>Please wait whilst your opponent selects their weapon...</h3>
 
 <meta http-equiv='refresh' content='5'/>

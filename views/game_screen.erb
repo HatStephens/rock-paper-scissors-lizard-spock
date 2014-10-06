@@ -1,4 +1,4 @@
-<% if @@games[session[:id]].player2_is_computer? %>
+<% if GAME.player2_is_computer? %>
 <h2>Good Luck, this piece of metal has one smart cookie!</h2>
 
 <h3><%= @opponent %> is feeling confident today <%= @name %>.</h3>
@@ -16,7 +16,7 @@
 
 <% end %>
 
-<% if !@@games[session[:id]].player2_is_computer? %>
+<% if !GAME.player2_is_computer? %>
 <h2>Good Luck <%= @name %>. We have paired you with another of your species.</h2>
 
 <p>Now choose your weapon and pray to the Gods that luck and fate are on your side:</p>
