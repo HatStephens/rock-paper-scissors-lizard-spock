@@ -18,14 +18,6 @@ class RPSLS < Sinatra::Base
 	@@waiting_player = []
 
 	get '/' do
-		if @@waiting_player.empty?
-			session[:id] = SecureRandom.uuid
-			@@waiting_player << session[:id]
-			@@games[session[:id]] = Game.new
-		else
-			session[:id] = SecureRandom.uuid
-			@@games[session[:id]] = @@games[@@waiting_player.pop]
-		end
 
 	  erb :index
 	end
@@ -45,7 +37,9 @@ class RPSLS < Sinatra::Base
 	end
 
 	get '/opponent_computer' do
-		@@waiting_player.pop
+		# @@waiting_player.pop
+			session[:id] = SecureRandom.uuid
+			@@games[session[:id]] = Game.new
 		player = Player.new
 	  	player.name = session[:name]
 	  	@@games[session[:id]].add_player(player)
@@ -56,6 +50,15 @@ class RPSLS < Sinatra::Base
 
 
 	get '/opponent_human' do
+		if @@waiting_player.empty?
+			session[:id] = SecureRandom.uuid
+			@@waiting_player << session[:id]
+			@@games[session[:id]] = Game.new
+		else
+			session[:id] = SecureRandom.uuid
+			@@games[session[:id]] = @@games[@@waiting_player.pop]
+		end
+
 		player = Player.new
 	  	player.name = session[:name]
 	  	@@games[session[:id]].add_player(player)
