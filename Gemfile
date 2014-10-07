@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-# gem 'securerandom'
+gem 'securerandom'
 gem 'rack'
 
 group :development, :test do
@@ -10,6 +10,5 @@ group :development, :test do
   gem 'cucumber-sinatra'
   gem 'launchy'
   gem 'rspec'
-  #gem 'sinatra-flash'
   gem 'shotgun'
 end
