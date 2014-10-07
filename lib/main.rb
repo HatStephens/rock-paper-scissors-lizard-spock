@@ -45,6 +45,7 @@ class RPSLS < Sinatra::Base
 	end
 
 	get '/opponent_computer' do
+		@@waiting_player.pop
 		player = Player.new
 	  	player.name = session[:name]
 	  	@@games[session[:id]].add_player(player)
