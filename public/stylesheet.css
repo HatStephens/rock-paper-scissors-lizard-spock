@@ -43,6 +43,13 @@ header > h4 {
 	color: #d46a6a;
 }
 
+p {
+	font-family: Tahoma;
+	font-size: 1em;
+	line-height: 1.3em;
+	color: #d46a6a;	
+}
+
 nav {
 	height: 50px;
 	padding: 8px;
