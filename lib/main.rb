@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require 'sinatra/flash'
-require 'rack'
 #require 'securerandom'
 require_relative 'game'
 require_relative 'player'
