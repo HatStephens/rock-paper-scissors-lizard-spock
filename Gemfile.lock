@@ -71,6 +71,7 @@ DEPENDENCIES
   cucumber
   cucumber-sinatra
   launchy
+  rack
   rspec
   shotgun
   sinatra

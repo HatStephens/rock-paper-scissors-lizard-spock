@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 # gem 'securerandom'
+gem 'rack'
 
 group :development, :test do
   gem 'capybara'
