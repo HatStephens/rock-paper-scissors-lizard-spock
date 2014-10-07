@@ -10,6 +10,6 @@ group :development, :test do
   gem 'cucumber-sinatra'
   gem 'launchy'
   gem 'rspec'
-  gem 'sinatra-flash'
+  #gem 'sinatra-flash'
   gem 'shotgun'
 end
