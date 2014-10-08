@@ -37,7 +37,6 @@ class RPSLS < Sinatra::Base
 	end
 
 	get '/opponent_computer' do
-		# @@waiting_player.pop
 			session[:id] = SecureRandom.uuid
 			@@games[session[:id]] = Game.new
 		player = Player.new
